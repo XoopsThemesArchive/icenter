@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="XOOPS" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_themecss}>" />
+<!-- RMV: added module header -->
+<{$xoops_module_header}>
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+<script language="JavaScript1.2">
+var bookmarkurl="<{$xoops_url}>"
+var bookmarktitle="<{$xoops_sitename}>"
+
+function addbookmark(){
+if (document.all)
+window.external.AddFavorite(bookmarkurl,bookmarktitle)
+}
+</script>
+</head>
+<body>
+	<div class="content">
+		<div class="header">
+			<div class="top_info">
+				<div class="top_info_right">
+					<p><{if !$xoops_isuser}><b>You are not registed yet!</b> <a href="<{$xoops_url}>/user.php">Log in</a> to check your messages<br />
+					Do you want to <a href="<{$xoops_url}>/user.php">Log in</a> or <a href="<{$xoops_url}>/register.php">register</a>?<{else}>
+					<br>Welcome <a href="<{$xoops_url}>/user.php"><b><{$xoops_uname}></b> </a>  
+				 <{/if}>
+				</p>
+				</div>		
+				<div class="top_info_left">
+					<p>Today is: <b><span id="clock"> <script language="JavaScript" type="text/javascript" src="<{$xoops_imageurl}>images/clock.js"></script> </span></b><br />
+					<img src="<{$xoops_imageurl}>images/bmark.png">&nbsp;<a href="javascript:addbookmark()">Add our site to your favorites</a><br />
+				<img src="<{$xoops_imageurl}>images/home.png">&nbsp;<a onclick="this.style.behavior='url(#default#homepage)';&#10;this.setHomePage('<{$xoops_url}>');" 
+                        href="<{$xoops_url}>#">Your default homepage</a></p>
+				</div>
+			</div>
+			<div class="logo">
+				<h1><a href="<{$xoops_url}>"><{$xoops_sitename}></a></h1>
+			</div>
+		</div>
+		
+		<div class="bar">
+			<ul>
+			    <li class="slogan">&nbsp;<{$xoops_slogan}></li>
+				<li><a href="<{$xoops_url}>" accesskey="i">Main</a></li>
+				<li><a href="<{$xoops_url}>/modules/news" accesskey="i">News</a></li>
+				<li><a href="<{$xoops_url}>/modules/newbb" accesskey="f">Forum</a></li>
+				<li><a href="<{$xoops_url}>/modules/mydownloads" accesskey="m">Download</a></li>
+				<li><a href="<{$xoops_url}>/modules/mylinks" accesskey="p">Links</a></li>
+				<li><a href="<{$xoops_url}>/modules/xcgal" accesskey="s">Album</a></li>
+				<li><a href="<{$xoops_url}>/modules/contact" accesskey="r">Contact</a></li>
+			</ul>
+		</div>
+		<div class="search_field">
+			<form method="get" action="<{$xoops_url}>/search.php">
+				<p><input type="text" name="query" class="search" /> <input type="hidden" name="action" value="results" /><input type="submit" value="Search" class="searchSubmit" /> <a href="<{$xoops_url}>/search.php">Advanced Search</a></p>
+			</form>
+		</div>
+		<div class="subheader">
+			<p><{$xoops_meta_description}></p>
+		</div>
+		<div class="left">
+			<div class="left_articles">
+				<h2><a href="<{$xoops_url}>" style="padding-left: 22px;">Welcome to <{$xoops_sitename}></a></h2>
+					<p><{include file="icenter/intro.html"}></p>
+			</div>
+			<div class="banner"><{$xoops_banner}></div>
+			<{foreach item=block from=$xoops_ccblocks}>
+		<div class="left_links"><b><{$block.title}></b><br>
+              		<{$block.content}>
+		</div>
+            	<{/foreach}>
+		<{$xoops_contents}>
+		<br>
+		<div class="left">
+			<{foreach item=block from=$xoops_clblocks}>
+			<div class="left_side"><b><{$block.title}></b><br>
+				<{$block.content}>
+			</div>
+			<{/foreach}>	
+			<{foreach item=block from=$xoops_crblocks}>
+			<div class="right_side"><b><{$block.title}></b><br>
+				<{$block.content}>
+			</div>
+			<{/foreach}>			
+		</div>	
+			<div class="left_box">
+			<{$xoops_footer}></div>
+		</div>	
+		<div class="right">
+			<{if !$xoops_isuser}><div class="right_login">
+				<form action="<{$xoops_url}>/user.php" method="post">
+					<p>Username: <input type="text" name="uname" class="login" /></p>
+					<p>Password: <input type="password" name="pass" class="login" /> <input type="hidden" name="xoops_redirect" value="<{$xoops_requesturi}>" class="searchSubmit" />
+			    <input type="hidden" name="op" value="login" />  <input type="submit" value="Login" /></p>
+				</form>
+			</div><{/if}>
+		<div class="right">
+			<{foreach item=block from=$xoops_rblocks}>
+			<{if $block.title == "Login" }>
+			<div class="right_login"><b><{$block.title}></b><br>
+				<{$block.content}>
+			</div>
+			<{else}>
+			<div class="right_articles"><b><{$block.title}></b><br>
+				<{$block.content}>
+			</div>
+			<{/if}>
+			<{/foreach}>
+		</div>	</div>
+		<div class="footer">
+			<a href="<{$xoops_url}>/backend.php">RSS Feed</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> and <a href="http://validator.w3.org/check?uri=referer">XHTML</a> | CSS Template by: <a href="http://www.solucija.com">luka cvrk</a> | Modified to XOOPS by: <a href="http://www.alburak.net">Mowaffak Ali</a><br />
+			</div>
+	</div>
+</body>
+</html>
